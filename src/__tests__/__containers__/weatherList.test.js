@@ -6,17 +6,21 @@ import { WeatherList } from '../../containers/WeatherList';
 Enzyme.configure({ adapter: new Adapter() });
 
 function setup() {
+    const props = {
+        renderWeather: jest.fn()
+    }
     const enzymeWrapper = mount(<WeatherList />)
 
     return {
+        props,
         enzymeWrapper
     }
 }
 
 describe('weather list', () =>{
     it('should render correctly', () => {
-        const { enzymeWrapper } = setup()
+        const { enzymeWrapper, props } = setup()
 
-        // expect(enzymeWrapper.find('table').hasClass('table table-hover')).toBe(true);
+        expect(enzymeWrapper.find('table').hasClass('table table-hover')).toBe(true);
     })
 })
