@@ -1,16 +1,28 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+// import { Sparklines, SparklinesLine } from 'react-sparklines'
 
-class WeatherList extends Component {
+export class WeatherList extends Component {
     renderWeather(cityData){
+        const id = cityData.city.id
+        const cname = cityData.city.name
+        const ctemps = cityData.list.map(weather => weather.main.temp)
         return (
-            <tr key={cityData.city.id}>
-                <td>{cityData.city.name}</td>
+            <tr key={id}>
+                <td>{cname}</td>
+                
             </tr>
         )
     }
 
     render() {
+        var weatherData;
+        if(this.props.weather === undefined){
+            weatherData = [];
+        } else {
+            weatherData = this.props.weather.map(this.renderWeather)
+        }
+
         return (
             <table className="table table-hover">
                 <thead>
@@ -22,7 +34,7 @@ class WeatherList extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    {this.props.weather.map(this.renderWeather)}
+                    {weatherData}
                 </tbody>
             </table>
         )
@@ -36,5 +48,5 @@ function mapStateToProps({ weather }){
 export default connect(mapStateToProps)(WeatherList);
 
 // TODO
-// find out way to handle user error
+// find out way to handle user error city search
 
