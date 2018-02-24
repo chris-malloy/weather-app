@@ -6,6 +6,7 @@ import GoogleMap from '../components/Map';
 export class WeatherList extends Component {
     renderWeather(cityData){
         const id = cityData.city.id
+        // eslint-disable-next-line
         const cname = cityData.city.name
         const ctemps = cityData.list.map(weather => weather.main.temp)
         const cpressures = cityData.list.map(weather => weather.main.pressure)
@@ -14,7 +15,7 @@ export class WeatherList extends Component {
 
         return (
             <tr key={id}>
-                <td>{cname}</td>
+                <td><GoogleMap lon={lon} lat={lat} /></td>
                 <td><Chart data={ctemps} color="orange" units="K" /></td>
                 <td><Chart data={cpressures} color="red" units="hPa" /></td>
                 <td><Chart data={chumidities} color="blue" units="%" /></td>
