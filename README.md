@@ -37,6 +37,20 @@ Here are some of challenges I encountered along the way and how I went about sol
 
 ### Code Snippets
 
+One of the main practice points of this project was handling an AJAX request inside of an action creator.  This is a very common process in Redux apps that make async requests.  
+
+```javascript
+export default function fetchWeather(city) {
+  const url = `${ROOT_URL}&q=${city},us`;
+  const request = axios.get(url);
+
+  return {
+    type: FETCH_WEATHER,
+    payload: request
+  };
+}
+```
+
 ### Acknowledgements
 
 Stephen Grider, thank you for the lesson.  It was a great way refined my knowledge of redux.

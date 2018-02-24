@@ -56,4 +56,5 @@ export default connect(mapStateToProps)(WeatherList);
 
 // TODO
 // find out way to handle user error city search
+// fix google maps issue
 
