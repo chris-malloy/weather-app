@@ -35,6 +35,32 @@ npm install --save-dev enzyme-adapter-react-16
 
 Here are some of challenges I encountered along the way and how I went about solving them.
 
+Originally the process to instantiate a new map followed like so:
+
+```javascript
+new google.maps.Map(this.refs.map, {
+            zoom: 12,
+            center: {
+                lat: this.props.lat,
+                lng: this.props.lon
+            }
+        })
+```
+
+However, the react-maps node module must have changed because this is now deprecated and the console was return with "google not defined."  After some googling to find out if this was a common bug, I found that google will be attached to the window after including it in your HTML file, and simple re-writing your code like so will help you access the google object and fix the error:
+
+```javascript
+new window.google.maps.Map(this.refs.map, {
+            zoom: 12,
+            center: {
+                lat: this.props.lat,
+                lng: this.props.lon
+            }
+        })
+```
+
+This was a furstrating challenge at first because the code base I was working off of utilized the old code, which means it clearly worked at some point.  The lesson to take care when relying on old code bases to learn (one or more years might be too old!) and always understand each and every line of code instead blindly copying it into your code base.
+
 ### Code Snippets
 
 One of the main practice points of this project was handling an AJAX request inside of an action creator.  This is a very common process in Redux apps that make async requests.  
