@@ -63,7 +63,7 @@ This was a furstrating challenge at first because the code base I was working of
 
 ### Code Snippets
 
-One of the main practice points of this project was handling an AJAX request inside of an action creator.  This is a very common process in Redux apps that make async requests.  
+One of the main practice points of this project was handling an AJAX request inside of an action creator.  This is a very common process in Redux apps that make async requests.
 
 ```javascript
 export default function fetchWeather(city) {
