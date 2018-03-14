@@ -79,4 +79,4 @@ export default function fetchWeather(city) {
 
 ### Acknowledgements
 
-Stephen Grider, thank you for the lesson.  It was a great way refined my knowledge of redux.
+Stephen Grider, thank you for the lesson.  It was a great way refine my knowledge of redux.
